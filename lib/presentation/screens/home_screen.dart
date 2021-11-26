@@ -14,6 +14,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: color,
         title: Text(title),
       ),
       body: Center(
@@ -67,20 +68,18 @@ class MyHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             MaterialButton(
-              color: color,
+              color: Colors.blueAccent,
               child: const Text('Go To Second Screen'),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      value: CounterCubit(),
-                      child: const SecondScreen(
-                        title: 'Second Screen',
-                        color: Colors.redAccent,
-                      ),
-                    ),
-                  ),
-                );
+                Navigator.of(context).pushNamed('/second-screen');
+              },
+            ),
+            const SizedBox(height: 25),
+            MaterialButton(
+              color: Colors.greenAccent,
+              child: const Text('Go To Third Screen'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/third-screen');
               },
             ),
           ],
